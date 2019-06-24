@@ -1,10 +1,6 @@
 spark-bigquery
 ==============
 
-[![Build Status](https://travis-ci.org/spotify/spark-bigquery.svg?branch=master)](https://travis-ci.org/spotify/spark-bigquery)
-[![GitHub license](https://img.shields.io/github/license/spotify/spark-bigquery.svg)](./LICENSE)
-[![Maven Central](https://img.shields.io/maven-central/v/com.spotify/spark-bigquery_2.11.svg)](https://maven-badges.herokuapp.com/maven-central/com.spotify/spark-bigquery_2.11)
-
 Google BigQuery support for Spark, SQL, and DataFrames.
 
 | spark-bigquery version | Spark version | Comment |
@@ -14,7 +10,7 @@ Google BigQuery support for Spark, SQL, and DataFrames.
 
 To use the package in a Google [Cloud Dataproc](https://cloud.google.com/dataproc/) cluster:
 
-`spark-shell --packages com.spotify:spark-bigquery_2.10:0.2.0`
+`spark-shell --packages com.shina:spark-bigquery:0.2.3-SNAPSHOT`
 
 To use it in a local SBT console:
 
@@ -48,7 +44,5 @@ df.saveAsBigQueryTable("my-project:my_dataset.my_table")
 ```
 
 # License
-
-Copyright 2016 Spotify AB.
 
 Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
