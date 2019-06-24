@@ -15,7 +15,7 @@
  * under the License.
  */
 
-package com.shina.spark.bigquery
+package io.github.odidere.spark.bigquery
 
 import java.util.UUID
 import java.util.concurrent.TimeUnit
