@@ -15,7 +15,7 @@
  * under the License.
  */
 
-package com.shina.spark
+package io.github.odidere.spark
 
 import org.apache.spark.sql.{DataFrame, SQLContext}
 import scala.language.implicitConversions

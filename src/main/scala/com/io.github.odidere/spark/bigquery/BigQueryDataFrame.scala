@@ -15,7 +15,7 @@
  * under the License.
  */
 
-package com.shina.spark.bigquery
+package io.github.odidere.spark.bigquery
 
 import com.google.api.services.bigquery.model.TableReference
 import com.google.cloud.hadoop.io.bigquery.{BigQueryConfiguration, BigQueryStrings}

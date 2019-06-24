@@ -15,7 +15,7 @@
  * under the License.
  */
 
-package com.shina.spark.bigquery
+package io.github.odidere.spark.bigquery
 
 import com.databricks.spark.avro.SchemaConverters
 import com.google.api.services.bigquery.model.TableReference

@@ -16,7 +16,7 @@
  */
 
 name := "spark-bigquery"
-organization := "com.shina"
+organization := "io.github.odidere"
 scalaVersion := "2.11.11"
 crossScalaVersions := Seq("2.10.6", "2.11.11")
 
@@ -25,6 +25,7 @@ sparkVersion := "2.2.0"
 sparkComponents := Seq("core", "sql")
 spAppendScalaVersion := true
 spIncludeMaven := true
+useGpg := false
 
 libraryDependencies ++= Seq(
   "com.databricks" %% "spark-avro" % "4.0.0",
@@ -43,15 +44,15 @@ assemblyMergeStrategy in assembly := {
 
 }
 
-ThisBuild / organization := "com.shina"
+organization := "io.github.odidere"
 
-ThisBuild / scmInfo := Some(
+scmInfo := Some(
   ScmInfo(
     url("https://github.com/odidere/spark-bigquery"),
     "scm:git@github.com/odidere/spark-bigquery.git"
   )
 )
-ThisBuild / developers := List(
+developers := List(
   Developer(
     id    = "odidere",
     name  = "Oluwashina Aladejubelo",
@@ -60,15 +61,17 @@ ThisBuild / developers := List(
   )
 )
 
-ThisBuild / description := "Spark BigQuery Lirary."
-ThisBuild / licenses := List("Apache 2" -> new URL("http://www.apache.org/licenses/LICENSE-2.0.txt"))
-ThisBuild / homepage := Some(url("https://github.com/odidere/spark-bigquery"))
+description := "Spark BigQuery Lirary."
+licenses := List("Apache 2" -> new URL("http://www.apache.org/licenses/LICENSE-2.0.txt"))
+homepage := Some(url("https://github.com/odidere/spark-bigquery"))
 
 // Remove all additional repository other than Maven Central from POM
-ThisBuild / pomIncludeRepository := { _ => false }
-ThisBuild / publishTo := {
+pomIncludeRepository := { _ => false }
+publishTo := {
   val nexus = "https://oss.sonatype.org/"
   if (isSnapshot.value) Some("snapshots" at nexus + "content/repositories/snapshots")
   else Some("releases" at nexus + "service/local/staging/deploy/maven2")
 }
-ThisBuild / publishMavenStyle := true
+publishMavenStyle := true
+
+
