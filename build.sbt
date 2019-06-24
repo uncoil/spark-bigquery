@@ -43,21 +43,32 @@ assemblyMergeStrategy in assembly := {
 
 }
 
-// Release settings
-licenses += "Apache-2.0" -> url("http://opensource.org/licenses/Apache-2.0")
-releaseCrossBuild             := true
-releasePublishArtifactsAction := PgpKeys.publishSigned.value
-pomExtra                      := {
-  <url>https://github.com/odidere/spark-bigquery</url>
-  <scm>
-    <url>git@github.com/odidere/spark-bigquery.git</url>
-    <connection>scm:git:git@github.com:odidere/spark-bigquery.git</connection>
-  </scm>
-  <developers>
-    <developer>
-      <id>odidere</id>
-      <name>Oluwashina Aladejubelo</name>
-      <url>https://www.linkedin.com/in/shinene</url>
-    </developer>
-  </developers>
+ThisBuild / organization := "com.shina"
+
+ThisBuild / scmInfo := Some(
+  ScmInfo(
+    url("https://github.com/odidere/spark-bigquery"),
+    "scm:git@github.com/odidere/spark-bigquery.git"
+  )
+)
+ThisBuild / developers := List(
+  Developer(
+    id    = "odidere",
+    name  = "Oluwashina Aladejubelo",
+    email = "shinasamuel@gmail.com",
+    url   = url("https://www.linkedin.com/in/shinene")
+  )
+)
+
+ThisBuild / description := "Spark BigQuery Lirary."
+ThisBuild / licenses := List("Apache 2" -> new URL("http://www.apache.org/licenses/LICENSE-2.0.txt"))
+ThisBuild / homepage := Some(url("https://github.com/odidere/spark-bigquery"))
+
+// Remove all additional repository other than Maven Central from POM
+ThisBuild / pomIncludeRepository := { _ => false }
+ThisBuild / publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  if (isSnapshot.value) Some("snapshots" at nexus + "content/repositories/snapshots")
+  else Some("releases" at nexus + "service/local/staging/deploy/maven2")
 }
+ThisBuild / publishMavenStyle := true

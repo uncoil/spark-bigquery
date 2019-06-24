@@ -14,7 +14,7 @@ To use the package in a Google [Cloud Dataproc](https://cloud.google.com/datapro
 To use it in a local SBT console:
 
 ```scala
-import com.spotify.spark.bigquery._
+import com.shina.spark.bigquery._
 
 // Set up GCP credentials
 sqlContext.setGcpJsonKeyFile("<JSON_KEY_FILE>")
