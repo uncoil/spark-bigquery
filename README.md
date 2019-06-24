@@ -6,7 +6,6 @@ Google BigQuery support for Spark, SQL, and DataFrames.
 | spark-bigquery version | Spark version | Comment |
 | :--------------------: | ------------- | ------- |
 | 0.2.x | 2.x.y | Active development |
-| 0.1.x | 1.x.y | Development halted |
 
 To use the package in a Google [Cloud Dataproc](https://cloud.google.com/dataproc/) cluster:
 
