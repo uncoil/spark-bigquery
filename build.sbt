@@ -21,7 +21,7 @@ scalaVersion := "2.11.11"
 crossScalaVersions := Seq("2.10.6", "2.11.11")
 
 spName := "odidere/spark-bigquery"
-sparkVersion := "2.2.0"
+sparkVersion := "2.3.0"
 sparkComponents := Seq("core", "sql")
 spAppendScalaVersion := true
 spIncludeMaven := true
@@ -70,7 +70,7 @@ pomIncludeRepository := { _ => false }
 publishTo := {
   val nexus = "https://oss.sonatype.org/"
   if (isSnapshot.value) Some("snapshots" at nexus + "content/repositories/snapshots")
-  else Some("releases" at nexus + "service/local/staging/deploy/maven2")
+  else Some("releases" at nexus + "service/local/staging/deployByRepositoryId/iogithubodidere-1002")
 }
 publishMavenStyle := true
 

@@ -44,4 +44,5 @@ df.saveAsBigQueryTable("my-project:my_dataset.my_table")
 
 # License
 
+Derived from works - Copyright 2016 Spotify AB.
 Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
