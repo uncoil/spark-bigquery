@@ -44,7 +44,15 @@ df.saveAsBigQueryTable("my-project:my_dataset.my_table")
 
 # Why this repo?
 
+This repository was created because the parent project `sportify/bigquery` is no longer being actively developed.
+This library works by loading data first into parquet in avro format before batch loading into BigQuery. Unfortunately,the existing implementation did not support schema inference whenever we have struct array column, this we added.
 
+```scala
+tmpWriteOptions match {
+      case null => df.write.avro(gcsPath)
+      case _ => df.write.options(tmpWriteOptions).avro(gcsPath)
+    }
+```
 
 # Publishing to Maven Central
 
