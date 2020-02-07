@@ -16,11 +16,11 @@
  */
 
 name := "spark-bigquery"
-organization := "io.github.odidere"
+organization := "ai.uncoil"
 scalaVersion := "2.11.11"
 crossScalaVersions := Seq("2.10.6", "2.11.11")
 
-spName := "odidere/spark-bigquery"
+spName := "uncoil/spark-bigquery"
 sparkVersion := "2.3.0"
 sparkComponents := Seq("core", "sql")
 spAppendScalaVersion := true
@@ -44,34 +44,30 @@ assemblyMergeStrategy in assembly := {
 
 }
 
-organization := "io.github.odidere"
-
 scmInfo := Some(
   ScmInfo(
-    url("https://github.com/odidere/spark-bigquery"),
-    "scm:git@github.com/odidere/spark-bigquery.git"
+    url("https://github.com/uncoil/spark-bigquery"),
+    "scm:git@github.com/uncoil/spark-bigquery.git"
   )
 )
 developers := List(
   Developer(
-    id    = "odidere",
-    name  = "Oluwashina Aladejubelo",
-    email = "shinasamuel@gmail.com",
-    url   = url("https://www.linkedin.com/in/shinene")
+    id    = "jakeorr",
+    name  = "Jake Orr",
+    email = "jake.orr@uncoil.ai",
+    url   = url("https://www.linkedin.com/in/jakeorr")
   )
 )
 
 description := "Spark BigQuery Lirary."
 licenses := List("Apache 2" -> new URL("http://www.apache.org/licenses/LICENSE-2.0.txt"))
-homepage := Some(url("https://github.com/odidere/spark-bigquery"))
+homepage := Some(url("https://github.com/uncoil/spark-bigquery"))
 
 // Remove all additional repository other than Maven Central from POM
 pomIncludeRepository := { _ => false }
 publishTo := {
   val nexus = "https://oss.sonatype.org/"
   if (isSnapshot.value) Some("snapshots" at nexus + "content/repositories/snapshots")
-  else Some("releases" at nexus + "service/local/staging/deployByRepositoryId/iogithubodidere-1002")
+  else Some("releases" at nexus + "service/local/staging/deployByRepositoryId/aiuncoil-1002")
 }
 publishMavenStyle := true
-
-
