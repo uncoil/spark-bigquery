@@ -53,6 +53,7 @@ object SchemaConverters {
       case LONG => SchemaType(LongType, nullable = false)
       case FIXED => SchemaType(BinaryType, nullable = false)
       case ENUM => SchemaType(StringType, nullable = false)
+      case NUMERIC => SchemaType(DecimalType(38, 9), nullable = false)
 
       case RECORD =>
         val fields = avroSchema.getFields.asScala.map { f =>
@@ -149,7 +150,7 @@ object SchemaConverters {
           (item: AnyRef) => if (item == null) null else item.toString
         // Byte arrays are reused by avro, so we have to make a copy of them.
         case (IntegerType, INT) | (BooleanType, BOOLEAN) | (DoubleType, DOUBLE) |
-             (FloatType, FLOAT) | (LongType, LONG) =>
+             (FloatType, FLOAT) | (LongType, LONG) | (DecimalType, NUMERIC) =>
           identity
         case (BinaryType, FIXED) =>
           (item: AnyRef) =>
@@ -322,7 +323,7 @@ object SchemaConverters {
       case LongType => schemaBuilder.longType()
       case FloatType => schemaBuilder.floatType()
       case DoubleType => schemaBuilder.doubleType()
-      case _: DecimalType => schemaBuilder.stringType()
+      case _: DecimalType => schemaBuilder.numericType()
       case StringType => schemaBuilder.stringType()
       case BinaryType => schemaBuilder.bytesType()
       case BooleanType => schemaBuilder.booleanType()
@@ -366,7 +367,7 @@ object SchemaConverters {
       case LongType => newFieldBuilder.longType()
       case FloatType => newFieldBuilder.floatType()
       case DoubleType => newFieldBuilder.doubleType()
-      case _: DecimalType => newFieldBuilder.stringType()
+      case _: DecimalType => newFieldBuilder.numericType()
       case StringType => newFieldBuilder.stringType()
       case BinaryType => newFieldBuilder.bytesType()
       case BooleanType => newFieldBuilder.booleanType()
